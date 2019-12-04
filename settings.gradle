@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-springcloud'
+include 'user-provider'
+include 'consumer'
+

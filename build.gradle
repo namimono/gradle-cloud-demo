@@ -1,0 +1,55 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+
+sourceCompatibility = 1.8
+ext {
+    springCloudAlibabaDependency = '2.1.0.RELEASE'
+    ioSpringPlatform = 'Brussels-SR17'
+    dubboVersion = '2.7.3'
+    nakmiProVersion = '1.0-SNAPSHOT'
+}
+
+allprojects {
+    group 'com.nakami'
+    version this.nakmiProVersion
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        //添加apache dubbo 统一依赖管理
+        implementation platform("org.apache.dubbo:dubbo-dependencies-bom:${this.dubboVersion}")
+        //添加springcloud alibaba统一依赖管理
+        implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${this.springCloudAlibabaDependency}")
+        //添加spring io 进行spring统一依赖管理
+        implementation platform("io.spring.platform:platform-bom:${this.ioSpringPlatform}")
+        implementation('org.springframework.boot:spring-boot-starter')
+        implementation('org.springframework.boot:spring-boot-starter-web')
+        implementation('org.springframework.boot:spring-boot-starter-test')
+    }
+}
+
+//consumer依赖user-provider
+project(':consumer'){
+    dependencies {
+        implementation project(':user-provider')
+    }
+}

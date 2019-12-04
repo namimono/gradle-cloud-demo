@@ -1,0 +1,28 @@
+
+
+dependencies {
+        //apache dubbo
+        implementation ("org.apache.dubbo:dubbo:${this.dubboVersion}"){
+                exclude group:'org.springframework',module:'spring'
+                exclude group:'javax.servlet',module:'servlet-api'
+                exclude group:'log4j',module:'log4j'
+        }
+        implementation "org.apache.dubbo:dubbo-spring-boot-starter"
+
+        //将dubbo注册到nacos所需要的依赖
+        implementation 'org.apache.dubbo:dubbo-registry-nacos'
+        implementation 'com.alibaba.nacos:nacos-client'
+        implementation 'com.alibaba.spring:spring-context-support:1.0.2'
+
+        //druid
+        implementation 'com.alibaba:druid-spring-boot-starter:1.1.10'
+        //tk mapper
+        implementation 'tk.mybatis:mapper-spring-boot-starter:2.1.5'
+        //fastjson
+        implementation 'com.alibaba:fastjson:1.2.56'
+        //mysql
+        implementation 'mysql:mysql-connector-java'
+
+}
+
+println this.getRootProject().name
