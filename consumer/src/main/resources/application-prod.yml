@@ -1,0 +1,24 @@
+#访问地址，端口
+server:
+  port: 8089
+  #配置tomcat
+  tomcat:
+    max-threads: 300
+
+#注册dubbo到nacos
+dubbo:
+  registry:
+    address: nacos://nacos:8848
+  scan:
+    base-packages: com.nakami.gradle.springcloud.controller
+  protocol:
+    name: dubbo
+    port: -1
+#定义服务名
+spring:
+  application:
+    name: consumer
+  main:
+    allow-bean-definition-overriding: true
+
+

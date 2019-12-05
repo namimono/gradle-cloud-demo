@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.2.1.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'maven'
 }
 
 
@@ -14,15 +15,18 @@ ext {
 }
 
 allprojects {
+
     group 'com.nakami'
     version this.nakmiProVersion
 
     apply plugin: 'java'
+    //用于将jar包发布到maven仓库中
+    apply plugin: 'maven'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
-
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
+
 
     repositories {
         maven {
@@ -32,6 +36,7 @@ allprojects {
             url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
         }
         mavenCentral()
+
     }
 
     dependencies {
@@ -46,10 +51,23 @@ allprojects {
         implementation('org.springframework.boot:spring-boot-starter-test')
     }
 }
-
+sourceSets {}
 //consumer依赖user-provider
 project(':consumer'){
     dependencies {
+        //巨坑！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        //由于项目使用了springboot打包插件，所以引入的其他模块，在打包的时候会被打包成springboot项目依赖进来
+        //本来只需要一个简单的jar即可，这样会导致无法正确找到所依赖的类。
+
+        //解决方法1：不要依赖整个项目，使用sourceSets.main.output获取所有类
+        //解决方法2：被依赖的模块provider不使用springboot插件打包。
+        //  bootJar {
+        //            enabled = false
+        //  }
+        //  jar {
+        //            enabled = true
+        //  }
+
         implementation project(':user-provider')
     }
 }

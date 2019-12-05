@@ -1,8 +1,6 @@
-
-
 dependencies {
     //apache dubbo
-    implementation ("org.apache.dubbo:dubbo:2.7.3"){
+    implementation ("org.apache.dubbo:dubbo:${this.dubboVersion}"){
         exclude group:'org.springframework',module:'spring'
         exclude group:'javax.servlet',module:'servlet-api'
         exclude group:'log4j',module:'log4j'
@@ -14,6 +12,6 @@ dependencies {
     implementation 'com.alibaba.nacos:nacos-client'
     implementation 'com.alibaba.spring:spring-context-support:1.0.2'
 
-//    implementation project(":user-provider").projectDir = file('user-provider')
+//    implementation "com.nakami:user-provider:1.0-SNAPSHOT"
 
 }

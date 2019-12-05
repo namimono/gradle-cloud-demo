@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user/")
 public class UserController {
-    @Reference
+    @Reference(version = "1.0.0")
     UserService userService;
 
     @GetMapping("getAll")
