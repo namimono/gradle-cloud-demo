@@ -12,6 +12,7 @@ ext {
     ioSpringPlatform = 'Brussels-SR17'
     dubboVersion = '2.7.3'
     nakmiProVersion = '1.0-SNAPSHOT'
+    lombokVersion = '1.18.10'
 }
 
 allprojects {
@@ -58,16 +59,18 @@ project(':consumer'){
         //巨坑！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
         //由于项目使用了springboot打包插件，所以引入的其他模块，在打包的时候会被打包成springboot项目依赖进来
         //本来只需要一个简单的jar即可，这样会导致无法正确找到所依赖的类。
-
-        //解决方法1：不要依赖整个项目，使用sourceSets.main.output获取所有类
-        //解决方法2：被依赖的模块provider不使用springboot插件打包。
+        //解决方法：被依赖的模块provider-api不使用springboot插件打包。
         //  bootJar {
         //            enabled = false
         //  }
         //  jar {
         //            enabled = true
         //  }
-
-        implementation project(':user-provider')
+        implementation project(':user-provider-api')
+    }
+}
+project(':user-provider'){
+    dependencies {
+        implementation project(':user-provider-api')
     }
 }

@@ -10,7 +10,7 @@ dubbo:
   registry:
     address: nacos://localhost:8848
   scan:
-    base-packages: com.nakami.gradle.springcloud.service
+    base-packages: com.nakami.gradle.springcloud.provider.service
   protocol:
     name: dubbo
     port: -1
@@ -24,7 +24,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
     platform: mysql
-    url: jdbc:mysql://mysql:3306/db_bookstore?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/db_bookstore?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
     username: root
     password:
     druid:

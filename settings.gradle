@@ -1,4 +1,5 @@
 rootProject.name = 'gradle-springcloud'
 include 'user-provider'
 include 'consumer'
+include 'user-provider-api'
 

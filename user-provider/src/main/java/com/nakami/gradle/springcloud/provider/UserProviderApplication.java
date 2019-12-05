@@ -1,4 +1,4 @@
-package com.nakami.gradle.springcloud;
+package com.nakami.gradle.springcloud.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

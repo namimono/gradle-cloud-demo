@@ -1,8 +1,8 @@
-package com.nakami.gradle.springcloud.service.impl;
+package com.nakami.gradle.springcloud.provider.service;
 
-import com.nakami.gradle.springcloud.dao.UserDao;
-import com.nakami.gradle.springcloud.model.BackUser;
-import com.nakami.gradle.springcloud.service.UserService;
+import com.nakami.gradle.springcloud.provider.api.model.BackUser;
+import com.nakami.gradle.springcloud.provider.api.service.UserService;
+import com.nakami.gradle.springcloud.provider.dao.UserDao;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,6 +1,6 @@
-package com.nakami.gradle.springcloud.dao;
+package com.nakami.gradle.springcloud.provider.dao;
 
-import com.nakami.gradle.springcloud.model.BackUser;
+import com.nakami.gradle.springcloud.provider.api.model.BackUser;
 import tk.mybatis.mapper.common.Mapper;
 
 /**

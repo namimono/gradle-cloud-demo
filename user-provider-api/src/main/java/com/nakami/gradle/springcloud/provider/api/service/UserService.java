@@ -1,6 +1,7 @@
-package com.nakami.gradle.springcloud.service;
+package com.nakami.gradle.springcloud.provider.api.service;
 
-import com.nakami.gradle.springcloud.model.BackUser;
+
+import com.nakami.gradle.springcloud.provider.api.model.BackUser;
 
 import java.util.List;
 

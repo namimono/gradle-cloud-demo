@@ -1,6 +1,6 @@
-package com.nakami.gradle.springcloud.controller;
+package com.nakami.gradle.springcloud.provider.controller;
 
-import com.nakami.gradle.springcloud.service.UserService;
+import com.nakami.gradle.springcloud.provider.api.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

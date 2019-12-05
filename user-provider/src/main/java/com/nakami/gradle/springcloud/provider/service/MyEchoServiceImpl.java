@@ -1,7 +1,7 @@
-package com.nakami.gradle.springcloud.service.impl;
+package com.nakami.gradle.springcloud.provider.service;
 
-import com.nakami.gradle.springcloud.dao.UserDao;
-import com.nakami.gradle.springcloud.service.MyEchoService;
+import com.nakami.gradle.springcloud.provider.api.service.MyEchoService;
+import com.nakami.gradle.springcloud.provider.dao.UserDao;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
